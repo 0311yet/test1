@@ -75,3 +75,10 @@ export interface StrategyRequest {
   config: Record<string, any>;
   is_active?: boolean;
 }
+
+export interface LogEntry {
+  level: string;
+  source: string;
+  message: string;
+  timestamp: string;
+}

@@ -1,10 +1,10 @@
 "use client";
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { BalanceData } from "@/types";
+import { Balance } from "@/types";
 
 interface BalanceCardProps {
-  data?: BalanceData;
+  data?: Balance;
 }
 
 export function BalanceCard({ data }: BalanceCardProps) {
