@@ -84,8 +84,8 @@ export const useToggleStrategy = () => {
   const queryClient = useQueryClient();
 
   return useMutation({
-    mutationFn: (strategyId: number) => 
-      api.put(`/strategies/${strategyId}/toggle`),
+    mutationFn: (strategyId: number) =>
+      api.put(`/strategies/${strategyId}/toggle`, {}),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: queryKeys.strategies });
     },
@@ -94,13 +94,13 @@ export const useToggleStrategy = () => {
 
 export const useExecuteStrategy = () => {
   return useMutation({
-    mutationFn: (strategyId: number) => 
-      api.post(`/strategies/${strategyId}/execute`),
+    mutationFn: (strategyId: number) =>
+      api.post(`/strategies/${strategyId}/execute`, {}),
   });
 };
 
 export const useCheckStrategies = () => {
   return useMutation({
-    mutationFn: () => api.post('/strategies/check'),
+    mutationFn: () => api.post('/strategies/check', {}),
   });
 };

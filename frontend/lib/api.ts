@@ -16,37 +16,37 @@ export const api = {
     return response.json();
   },
 
-  post: async (endpoint: string, data: any) => {
+  post: async (endpoint: string, data: any = {}) => {
     const response = await fetch(`${API_URL}${endpoint}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(data),
+      body: data ? JSON.stringify(data) : undefined,
     });
-    
+
     if (!response.ok) {
       const error = await response.json();
       throw new Error(error.detail || 'API request failed');
     }
-    
+
     return response.json();
   },
 
-  put: async (endpoint: string, data: any) => {
+  put: async (endpoint: string, data: any = {}) => {
     const response = await fetch(`${API_URL}${endpoint}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(data),
+      body: data ? JSON.stringify(data) : undefined,
     });
-    
+
     if (!response.ok) {
       const error = await response.json();
       throw new Error(error.detail || 'API request failed');
     }
-    
+
     return response.json();
   },
 
