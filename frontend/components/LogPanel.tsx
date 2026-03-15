@@ -43,35 +43,35 @@ export function LogPanel({ logs: initialLogs, refreshInterval = 10000 }: LogPane
     }
   };
 
-  return (
-    <Card>
-      <CardContent className="p-6">
-        <div className="flex items-center justify-between mb-4">
-          <h3 className="text-lg font-semibold">System Logs</h3>
-          <div className="flex gap-2">
-            {['all', 'info', 'warning', 'error', 'success'].map((level) => (
-              <button
-                key={level}
-                onClick={() => setFilterLevel(level)}
-                className={`px-3 py-1 rounded text-sm font-medium ${
-                  filterLevel === level
-                    ? 'bg-gray-900 text-white'
-                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                }`}
-              >
-                {level}
-              </button>
-            ))}
-          </div>
-        </div>
+   return (
+     <Card>
+       <CardContent className="p-6">
+         <div className="flex items-center justify-between mb-4">
+           <h3 className="text-lg font-semibold">System Logs</h3>
+           <div className="flex gap-2">
+             {['all', 'info', 'warning', 'error', 'success'].map((level: string) => (
+               <button
+                 key={level}
+                 onClick={() => setFilterLevel(level)}
+                 className={`px-3 py-1 rounded text-sm font-medium ${
+                   filterLevel === level
+                     ? 'bg-gray-900 text-white'
+                     : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                 }`}
+               >
+                 {level}
+               </button>
+             ))}
+           </div>
+         </div>
 
-        <div className="space-y-2 max-h-96 overflow-y-auto">
-          {filteredLogs.length > 0 ? (
-            filteredLogs.map((log, index) => (
-              <div
-                key={index}
-                className="flex items-start gap-3 p-2 hover:bg-gray-50 dark:hover:bg-gray-700 rounded"
-              >
+         <div className="space-y-2 max-h-96 overflow-y-auto">
+           {filteredLogs.length > 0 ? (
+             filteredLogs.map((log: LogEntry, index: number) => (
+               <div
+                 key={index}
+                 className="flex items-start gap-3 p-2 hover:bg-gray-50 dark:hover:bg-gray-700 rounded"
+               >
                 <span className={`px-2 py-0.5 rounded text-xs font-medium ${getLevelColor(log.level)}`}>
                   {log.level.toUpperCase()}
                 </span>

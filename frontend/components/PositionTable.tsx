@@ -32,7 +32,7 @@ export function PositionTable() {
       <CardContent className="p-6">
         <div className="space-y-4">
           {positions && positions.length > 0 ? (
-            positions.map((position) => {
+            positions.map((position: Position) => {
               const quantity = position.quantity ?? 0;
               const avgPrice = position.avg_price ?? 0;
               const markPrice = position.mark_price ?? 0;

@@ -32,7 +32,7 @@ export function OrderTable() {
       <CardContent className="p-6">
         <div className="space-y-4">
           {orders && orders.length > 0 ? (
-            orders.map((order) => (
+            orders.map((order: Order) => (
               <div
                 key={order.id}
                 className="flex items-center justify-between p-4 bg-gray-50 dark:bg-gray-700 rounded-lg"
